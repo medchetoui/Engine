@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-inter: "Inter", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Dynamically mapped Tailwind colors */
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-bg-color: var(--bg-color);
+  --color-surface: var(--surface-color);
+  --color-highlight: var(--text-primary);
+  --color-muted: var(--text-secondary);
+
+  /* Theme Reference Colors */
+  --color-dark-bg: #0F1117;
+  --color-dark-surface: #161A22;
+  --color-dark-accent-primary: #4F8CFF;
+  --color-dark-accent-secondary: #9B6BFF;
+  --color-dark-text-primary: #F5F7FA;
+  --color-dark-text-secondary: #A0A8B8;
+
+  --color-light-bg: #F7F8FA;
+  --color-light-surface: #FFFFFF;
+  --color-light-accent-primary: #3D63FF;
+  --color-light-accent-secondary: #7B4DFF;
+  --color-light-text-primary: #1C1F26;
+  --color-light-text-secondary: #5B6472;
+
+  --radius-2xl: 2rem;
+}
+
+/* Custom design system applying variables conditionally via dark mode */
+@layer base {
+  :root {
+    --bg-color: var(--color-light-bg);
+    --surface-color: var(--color-light-surface);
+    --accent-primary: var(--color-light-accent-primary);
+    --accent-secondary: var(--color-light-accent-secondary);
+    --text-primary: var(--color-light-text-primary);
+    --text-secondary: var(--color-light-text-secondary);
+  }
+
+  .dark {
+    --bg-color: var(--color-dark-bg);
+    --surface-color: var(--color-dark-surface);
+    --accent-primary: var(--color-dark-accent-primary);
+    --accent-secondary: var(--color-dark-accent-secondary);
+    --text-primary: var(--color-dark-text-primary);
+    --text-secondary: var(--color-dark-text-secondary);
+  }
+
+  /* Base styling */
+  html {
+    /* GSAP Controlled Scrolling */
+  }
+
+  button,
+  a,
+  [role="button"],
+  .cursor-hand {
+    cursor: pointer;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-inter);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    @apply antialiased min-h-screen;
+  }
+
+  ::selection {
+    background-color: var(--accent-primary);
+    color: white;
+  }
+}
+
+/* Utilities for noise & gradients */
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .dark .bg-noise {
+    opacity: 0.05;
+  }
+
+  /* Structural Colors */
+  .bg-primary {
+    background-color: var(--bg-color);
+  }
+
+  .bg-surface {
+    background-color: var(--surface-color);
+  }
+
+  .text-highlight {
+    color: var(--text-primary);
+  }
+
+  .text-muted {
+    color: var(--text-secondary);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-surface/80 backdrop-blur-md border border-black/5 shadow-xl shadow-black/10;
+  }
+
+  .dark .glass {
+    @apply bg-surface/80 backdrop-blur-md border border-white/5 shadow-2xl shadow-black/40;
+  }
+}
