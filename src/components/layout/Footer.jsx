@@ -47,13 +47,13 @@ export default function Footer() {
                         <h4 className="font-bold font-inter text-highlight mb-6">Contact</h4>
                         <ul className="space-y-4">
                             <li>
-                                <a href="https://www.linkedin.com/in/mohammedaminechetoui/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted hover:text-accent-primary transition-colors font-inter text-sm">
+                                <a href="https://www.linkedin.com/in/mohammedamine-chetoui-449864258/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted hover:text-accent-primary transition-colors font-inter text-sm">
                                     <Linkedin size={18} />
                                     LinkedIn
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:mohammedamine@example.com" className="flex items-center gap-3 text-muted hover:text-accent-primary transition-colors font-inter text-sm">
+                                <a href="mailto:medchetoui44@gmail.com" className="flex items-center gap-3 text-muted hover:text-accent-primary transition-colors font-inter text-sm">
                                     <Mail size={18} />
                                     Email
                                 </a>

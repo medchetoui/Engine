@@ -44,7 +44,7 @@ export default function CTA() {
                         </h2>
 
                         <a
-                            href="mailto:mohammedamine@example.com"
+                            href="mailto:medchetoui44@gmail.com"
                             className="inline-flex items-center gap-3 px-8 py-4 bg-accent-primary text-white rounded-full font-inter font-bold text-lg hover:bg-accent-secondary hover:scale-105 transition-all duration-300 magnetic shadow-xl hover:shadow-accent-primary/30"
                         >
                             <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />

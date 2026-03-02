@@ -81,9 +81,9 @@ export default function About() {
 
     const stats = [
         { target: 12, suffix: '+', label: 'about.stats.saas' },
-        { target: 20, suffix: '+', label: 'about.stats.automation' },
+        { target: 25, suffix: '+', label: 'about.stats.automation' },
         { target: 15, suffix: '+', label: 'about.stats.backend' },
-        { target: 8, suffix: '+', label: 'about.stats.tech' },
+        { target: 20, suffix: '+', label: 'about.stats.tech' },
     ];
 
     return (
