@@ -44,14 +44,10 @@ export default function ScrollToTop() {
     const scrollToTop = () => {
         gsap.killTweensOf(window);
         gsap.to(window, {
-            duration: 1,
-            scrollTo: { y: 0, autoKill: false },
-            ease: 'power3.inOut',
-            onComplete: () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            duration: 1.4,
+            scrollTo: { y: 0 },
+            ease: 'power4.inOut',
         });
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (

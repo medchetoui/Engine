@@ -30,11 +30,27 @@ export default function Navbar() {
         e.preventDefault();
         setMobileMenuOpen(false);
         gsap.killTweensOf(window);
-        gsap.to(window, {
-            duration: 1.2,
-            scrollTo: { y: target, offsetY: 80, autoKill: true },
-            ease: 'power3.inOut'
-        });
+
+        if (target === 'body' || target === '#') {
+            gsap.to(window, {
+                duration: 1.2,
+                scrollTo: { y: 0 },
+                ease: 'power3.inOut'
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        const targetEl = document.querySelector(target);
+        if (targetEl) {
+            const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
+            gsap.to(window, {
+                duration: 1.2,
+                scrollTo: { y: targetPosition },
+                ease: 'power3.inOut'
+            });
+            targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     const navLinks = [
