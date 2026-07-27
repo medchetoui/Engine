@@ -177,9 +177,11 @@ export default function Pricing() {
                                         {plan.idealFor}
                                     </p>
 
-                                    {/* CTA */}
+                                    {/* CTA Button linking to WhatsApp with prefilled message */}
                                     <a
-                                        href="#contact"
+                                        href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Mohammed, je suis intéressé par la formule "${plan.name} (${plan.price})" pour mon projet.`)}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className={`group inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-inter font-semibold text-sm transition-all duration-300 ${styles.btn}`}
                                     >
                                         {plan.key === 'enterprise' ? (
@@ -207,19 +209,22 @@ export default function Pricing() {
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                         {addons.map((addon, i) => (
-                            <div
+                            <a
                                 key={i}
+                                href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Mohammed, je souhaite ajouter l'option "${addon.name} (${addon.price})" à mon projet.`)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 onMouseEnter={() => setHoveredAddon(i)}
                                 onMouseLeave={() => setHoveredAddon(null)}
-                                className={`addon-item glass rounded-2xl border p-4 text-center transition-all duration-300 cursor-default
+                                className={`addon-item glass rounded-2xl border p-4 text-center transition-all duration-300 cursor-pointer block group hover:bg-surface/80
                                     ${hoveredAddon === i
-                                        ? 'border-accent-primary/40 -translate-y-1 shadow-lg shadow-accent-primary/10'
+                                        ? 'border-accent-primary/50 -translate-y-1.5 shadow-xl shadow-accent-primary/20 bg-surface'
                                         : 'border-white/5'}
                                 `}
                             >
-                                <p className="text-xs font-inter text-muted mb-2 leading-snug">{addon.name}</p>
-                                <p className="text-sm font-bold font-mono text-accent-primary">{addon.price}</p>
-                            </div>
+                                <p className="text-xs font-inter text-muted group-hover:text-highlight mb-2 leading-snug transition-colors">{addon.name}</p>
+                                <p className="text-sm font-bold font-mono text-accent-primary group-hover:scale-105 transition-transform">{addon.price}</p>
+                            </a>
                         ))}
                     </div>
                 </div>
