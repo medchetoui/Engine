@@ -1,8 +1,8 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import { ArrowRight, Folder } from 'lucide-react';
+import { ArrowRight, Folder, ChevronLeft, ChevronRight } from 'lucide-react';
 
 gsap.registerPlugin(useGSAP);
 
@@ -85,26 +85,103 @@ export default function Hero() {
                                 {t('hero.viewWork')}
                             </a>
                         </div>
+
+                        {/* Guarantee / Trust Signal */}
+                        <p className="hero-buttons mt-5 text-xs font-mono text-muted opacity-70 tracking-wide">
+                            ✦ {t('hero.guarantee')}
+                        </p>
+
                     </div>
 
-                    <div className="hero-image relative hidden lg:block">
-                        {/* Using Img_1.jpeg as the primary hero portrait */}
-                        <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl z-10">
-                            <img
-                                src="/images/Img_1.jpeg"
-                                alt="Mohammed Amine Chetoui"
-                                className="w-full h-full object-cover object-center"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        </div>
+                    <div className="hero-image relative mt-12 lg:mt-0">
+                        {/* Auto-sliding image carousel */}
+                        <HeroImageSlider />
 
                         {/* Decorative background blur */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent-primary/20 blur-[100px] rounded-full z-0" />
-                        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-accent-secondary/20 blur-[80px] rounded-full z-0" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent-primary/20 blur-[100px] rounded-full z-0 pointer-events-none" />
+                        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-accent-secondary/20 blur-[80px] rounded-full z-0 pointer-events-none" />
                     </div>
 
                 </div>
             </div>
         </section>
+    );
+}
+
+function HeroImageSlider() {
+    const images = [
+        { src: 'images/me.jpeg', alt: 'Mohammed Amine Chetoui' },
+        { src: 'images/Img_1.jpeg', alt: 'Mohammed Amine Chetoui - Portrait' },
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 3500);
+
+        return () => clearInterval(timer);
+    }, [images.length]);
+
+    const handlePrev = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    };
+
+    const handleNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    };
+
+    return (
+        <div className="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl z-10 group">
+            {/* Sliding Track */}
+            <div
+                className="flex w-full h-full transition-transform duration-700 ease-out"
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+                {images.map((img, idx) => (
+                    <div key={idx} className="w-full h-full flex-shrink-0 relative">
+                        <img
+                            src={img.src}
+                            alt={img.alt}
+                            className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    </div>
+                ))}
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+                onClick={handlePrev}
+                aria-label="Previous Image"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/40 backdrop-blur-md text-white/80 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 z-20"
+            >
+                <ChevronLeft size={22} />
+            </button>
+            <button
+                onClick={handleNext}
+                aria-label="Next Image"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/40 backdrop-blur-md text-white/80 hover:text-white hover:bg-black/60 transition-all opacity-0 group-hover:opacity-100 z-20"
+            >
+                <ChevronRight size={22} />
+            </button>
+
+            {/* Pagination Indicators */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                {images.map((_, idx) => (
+                    <button
+                        key={idx}
+                        onClick={() => setCurrentIndex(idx)}
+                        aria-label={`Go to slide ${idx + 1}`}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                            idx === currentIndex
+                                ? 'w-6 bg-accent-primary'
+                                : 'w-2 bg-white/40 hover:bg-white/70'
+                        }`}
+                    />
+                ))}
+            </div>
+        </div>
     );
 }

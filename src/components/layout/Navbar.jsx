@@ -38,10 +38,12 @@ export default function Navbar() {
     const navLinks = [
         { key: 'about', label: t('nav.about'), href: '#about' },
         { key: 'solutions', label: t('nav.solutions'), href: '#solutions' },
-        { key: 'technologies', label: t('nav.technologies'), href: '#technologies' },
         { key: 'projects', label: t('nav.projects'), href: '#projects' },
+        { key: 'pricing', label: t('nav.pricing'), href: '#pricing' },
+        { key: 'faq', label: t('nav.faq'), href: '#faq' },
         { key: 'process', label: t('nav.process'), href: '#process' },
     ];
+
 
     return (
         <nav
@@ -55,9 +57,16 @@ export default function Navbar() {
           `}
                 >
                     {/* Logo / Name */}
-                    <div className="font-inter font-bold tracking-tight text-lg">
-                        Mohammed Amine
-                    </div>
+                    <a href="#" onClick={(e) => handleSmoothScroll(e, 'body')} className="flex items-center gap-2.5 group">
+                        <img
+                            src="images/logo.png"
+                            alt="MA Logo"
+                            className="w-9 h-9 rounded-xl object-contain group-hover:scale-110 transition-transform duration-300"
+                        />
+                        <span className="font-inter font-bold tracking-tight text-base text-highlight hidden sm:block">
+                            Mohammed Amine
+                        </span>
+                    </a>
 
                     {/* Desktop Links (Center) */}
                     <div className="hidden lg:flex items-center gap-8 font-inter text-sm">

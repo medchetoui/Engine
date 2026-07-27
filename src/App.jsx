@@ -6,6 +6,8 @@ import About from './components/sections/About';
 import Technologies from './components/sections/Technologies';
 import Solutions from './components/sections/Solutions';
 import Projects from './components/sections/Projects';
+import Pricing from './components/sections/Pricing';
+import FAQ from './components/sections/FAQ';
 import Process from './components/sections/Process';
 import CTA from './components/sections/CTA';
 import Footer from './components/layout/Footer';
@@ -29,6 +31,8 @@ function App() {
           <Technologies />
           <Solutions />
           <Projects />
+          <Pricing />
+          <FAQ />
           <Process />
           <CTA />
         </main>

@@ -53,18 +53,18 @@ export default function Process() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
                     {steps.map((step, i) => (
-                        <div key={i} className="process-card group relative pt-16">
-                            {/* Background Number */}
-                            <span className="text-[10rem] md:text-[14rem] font-black font-inter text-black dark:text-white opacity-5 md:opacity-[0.03] absolute -top-8 -left-4 md:-left-8 z-0 transition-transform duration-700 group-hover:-translate-y-4 select-none">
-                                {step.num}
-                            </span>
-
+                        <div key={i} className="process-card group relative">
                             {/* Card Content */}
-                            <div className="relative z-10 glass p-8 md:p-10 rounded-[2.5rem] border-white/10 h-full flex flex-col group-hover:-translate-y-2 transition-transform duration-500 shadow-xl hover:shadow-2xl cursor-pointer">
-                                <h3 className="text-3xl font-bold font-inter text-highlight mb-4">
+                            <div className="glass p-8 md:p-10 rounded-[2.5rem] border-white/10 h-full flex flex-col group-hover:-translate-y-2 transition-transform duration-500 shadow-xl hover:shadow-2xl cursor-pointer">
+                                {/* Number Badge */}
+                                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-accent-primary/10 border border-accent-primary/20 text-accent-primary font-mono text-xl font-bold mb-6 group-hover:bg-accent-primary group-hover:text-white transition-all duration-300">
+                                    {step.num}
+                                </div>
+
+                                <h3 className="text-2xl font-bold font-inter text-highlight mb-3">
                                     {step.title}
                                 </h3>
-                                <p className="text-lg text-muted font-playfair italic flex-grow">
+                                <p className="text-base text-muted font-inter leading-relaxed flex-grow">
                                     {step.desc}
                                 </p>
                             </div>
