@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
-import { Moon, Sun, Globe } from 'lucide-react';
+import { Moon, Sun, Globe, Menu, X } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
@@ -11,6 +11,7 @@ export default function Navbar() {
     const { isDarkMode, toggleTheme } = useTheme();
     const { lang, toggleLanguage, t } = useLanguage();
     const [scrolled, setScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         let scrollTimeout;
@@ -27,7 +28,8 @@ export default function Navbar() {
 
     const handleSmoothScroll = (e, target) => {
         e.preventDefault();
-        gsap.killTweensOf(window); // Kill any existing scroll animations
+        setMobileMenuOpen(false);
+        gsap.killTweensOf(window);
         gsap.to(window, {
             duration: 1.2,
             scrollTo: { y: target, offsetY: 80, autoKill: true },
@@ -43,7 +45,6 @@ export default function Navbar() {
         { key: 'faq', label: t('nav.faq'), href: '#faq' },
         { key: 'process', label: t('nav.process'), href: '#process' },
     ];
-
 
     return (
         <nav
@@ -83,10 +84,10 @@ export default function Navbar() {
                     </div>
 
                     {/* Right Actions */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 md:gap-4">
                         <button
                             onClick={() => toggleLanguage(lang === 'en' ? 'fr' : 'en')}
-                            className="flex items-center gap-2 text-sm font-mono text-muted hover:text-highlight transition-colors"
+                            className="flex items-center gap-1.5 text-sm font-mono text-muted hover:text-highlight transition-colors p-1.5 rounded-lg hover:bg-surface"
                         >
                             <Globe size={16} />
                             <span>{lang.toUpperCase()}</span>
@@ -106,8 +107,44 @@ export default function Navbar() {
                         >
                             {t('nav.cta')}
                         </a>
+
+                        {/* Mobile Hamburger Toggle Button */}
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className="lg:hidden p-2 rounded-xl text-muted hover:text-highlight bg-surface/80 border border-white/10 transition-colors"
+                            aria-label="Toggle Navigation Menu"
+                        >
+                            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                        </button>
                     </div>
                 </div>
+
+                {/* Mobile Dropdown Menu Drawer */}
+                {mobileMenuOpen && (
+                    <div className="lg:hidden mt-3 p-6 glass rounded-3xl border border-white/10 flex flex-col gap-4 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300">
+                        <div className="flex flex-col gap-3 font-inter text-base">
+                            {navLinks.map((link) => (
+                                <a
+                                    key={link.key}
+                                    href={link.href}
+                                    onClick={(e) => handleSmoothScroll(e, link.href)}
+                                    className="px-4 py-2.5 rounded-2xl text-muted hover:text-highlight hover:bg-white/5 transition-all"
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
+                        </div>
+                        <div className="pt-3 border-t border-white/10 flex flex-col gap-3 sm:hidden">
+                            <a
+                                href="#contact"
+                                onClick={(e) => handleSmoothScroll(e, '#contact')}
+                                className="w-full text-center px-5 py-3 rounded-2xl bg-accent-primary text-white text-sm font-inter font-semibold hover:bg-accent-secondary transition-all"
+                            >
+                                {t('nav.cta')}
+                            </a>
+                        </div>
+                    </div>
+                )}
             </div>
         </nav>
     );
