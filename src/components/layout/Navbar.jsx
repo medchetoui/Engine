@@ -29,14 +29,8 @@ export default function Navbar() {
     const handleSmoothScroll = (e, target) => {
         e.preventDefault();
         setMobileMenuOpen(false);
-        gsap.killTweensOf(window);
 
         if (target === 'body' || target === '#') {
-            gsap.to(window, {
-                duration: 1.2,
-                scrollTo: { y: 0 },
-                ease: 'power3.inOut'
-            });
             window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
@@ -44,12 +38,7 @@ export default function Navbar() {
         const targetEl = document.querySelector(target);
         if (targetEl) {
             const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - 80;
-            gsap.to(window, {
-                duration: 1.2,
-                scrollTo: { y: targetPosition },
-                ease: 'power3.inOut'
-            });
-            targetEl.scrollIntoView({ behavior: 'smooth' });
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
     };
 
