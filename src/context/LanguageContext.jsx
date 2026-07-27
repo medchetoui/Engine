@@ -24,40 +24,113 @@ export const translations = {
             guarantee: '24h Response · Free Proposal · No Commitment'
         },
         pricing: {
-            title: 'Clear Packages & Solutions',
-            subtitle: 'Structured packages tailored to your exact tech requirements. Transparent ROI-driven pricing.',
-            recommended: 'Most Requested',
-            starterTitle: 'Showcase & High-Converting Web',
-            starterDesc: 'Fast, modern web platform designed for maximum brand presence and lead generation.',
-            starterPrice: 'From $499',
-            starterFeatures: [
-                'Custom React Showcase / High-converting Landing Page',
-                'Responsive UI (Mobile, Tablet & Desktop)',
-                'SEO optimization & ultra-fast loading speed',
-                'Contact Form & Instant WhatsApp lead routing',
-                'Turnaround in 7–10 days'
+            sectionBadge: 'PRICING & PACKAGES',
+            title: 'Digital Products, Not Websites.',
+            subtitle: 'Positioning engineered for results. Choose the package that fits your ambition.',
+            recommended: 'Most Popular',
+            addonsTitle: 'Power-Up Add-ons',
+            addonsSubtitle: 'Extend any package with these high-value modules.',
+            ctaBtn: 'Start a Project',
+            ctaSecondary: 'Book a Free Call',
+            plans: [
+                {
+                    key: 'launch',
+                    badge: null,
+                    name: 'Launch',
+                    tagline: 'Landing Page & Business Website',
+                    price: '€599',
+                    priceNote: 'Starting at',
+                    delivery: 'Delivery in 7–10 days',
+                    idealFor: 'Restaurants · Agencies · Lawyers · Freelancers · Doctors',
+                    features: [
+                        'Custom Design (React / Next.js)',
+                        'Fully Responsive (Mobile, Tablet, Desktop)',
+                        'Contact Form & WhatsApp Integration',
+                        'Basic SEO & Fast Performance',
+                        'Hosting Assistance',
+                        'Up to 5 pages'
+                    ],
+                    notIncluded: ['Dashboard', 'Authentication', 'Database', 'Payments', 'Mobile App']
+                },
+                {
+                    key: 'growth',
+                    badge: '⭐ Most Popular',
+                    name: 'Growth',
+                    tagline: 'SaaS Platform & Web Application',
+                    price: '€1,499',
+                    priceNote: 'Starting at',
+                    delivery: 'Delivery in 3–6 weeks',
+                    idealFor: 'CRM · ERP · Booking · Marketplace · Logistics · Learning Platform',
+                    features: [
+                        'Everything in Launch, plus:',
+                        'User & Admin Dashboard',
+                        'Authentication & Role Management',
+                        'Database Architecture (MySQL / MongoDB)',
+                        'Stripe Payment Integration',
+                        'REST APIs & Email Notifications',
+                        'CRUD Management & File Upload',
+                        'Analytics Dashboard',
+                        'Up to 15 pages'
+                    ],
+                    notIncluded: []
+                },
+                {
+                    key: 'scale',
+                    badge: null,
+                    name: 'Scale',
+                    tagline: 'AI Automation & Custom Software',
+                    price: '€3,499',
+                    priceNote: 'Starting at',
+                    delivery: 'Delivery in 6–10 weeks',
+                    idealFor: 'AI Support · Sales Agent · Lead Generation · Internal SaaS · Automation',
+                    features: [
+                        'Everything in Growth, plus:',
+                        'AI Assistant (OpenAI / Gemini)',
+                        'Workflow & Email Automation',
+                        'Web Scraping & Data Extraction',
+                        'WhatsApp Automation Pipeline',
+                        'PDF Generation & Reporting',
+                        'CRM Integrations',
+                        'Docker & Cloud Deployment',
+                        'Multi-language & Advanced Security'
+                    ],
+                    notIncluded: []
+                },
+                {
+                    key: 'enterprise',
+                    badge: null,
+                    name: 'Enterprise',
+                    tagline: 'Digital Transformation',
+                    price: 'Custom',
+                    priceNote: 'Quote',
+                    delivery: 'Timeline on scoping call',
+                    idealFor: 'Large organizations & digital transformation projects',
+                    features: [
+                        'Mobile Apps (React Native)',
+                        'Full SaaS Products',
+                        'AI & LLM Integrations',
+                        'Dedicated Backend & DevOps',
+                        'CI/CD & Infrastructure Setup',
+                        'Monitoring & Observability',
+                        'Long-term Support & SLA'
+                    ],
+                    notIncluded: []
+                }
             ],
-            businessTitle: 'Full-Stack SaaS & Mobile App',
-            businessDesc: 'Complete digital product with web dashboard, React Native mobile app, and backend APIs.',
-            businessPrice: 'From $999',
-            businessFeatures: [
-                'Full-stack Web App or Cross-platform Mobile App (React Native)',
-                'Backend Architecture & Database (Node.js / Symfony / Django / MySQL)',
-                'User Authentication, Role-based Permissions & Admin Panel',
-                'Subscription & Payment Gateway Integration (Stripe/PayPal)',
-                'REST API development & workflow automation'
-            ],
-            enterpriseTitle: 'AI Integration & Custom API Systems',
-            enterpriseDesc: 'Bespoke AI pipelines, LLM integration, scraping engines, and specialized microservices.',
-            enterprisePrice: 'From $1,499',
-            enterpriseFeatures: [
-                'Custom AI Assistant & LLM API Integration (Gemini, OpenAI)',
-                'Automated Data Scraping & Extraction Engines (Selenium/BeautifulSoup)',
-                'Bulk Communication Pipelines (Email / WhatsApp Automation)',
-                'Custom Backend Microservices & API Architecture',
-                'Priority Technical Support, Maintenance & Scaling SLA'
-            ],
-            ctaBtn: 'Request Free Quote'
+            addons: [
+                { name: 'Extra Page', price: '€80' },
+                { name: 'Blog / CMS', price: '€250' },
+                { name: 'Stripe Payments', price: '€350' },
+                { name: 'Authentication System', price: '€300' },
+                { name: 'Admin Dashboard', price: '€600' },
+                { name: 'Mobile App', price: 'From €2,000' },
+                { name: 'AI Chatbot', price: '€700' },
+                { name: 'OpenAI Integration', price: '€600' },
+                { name: 'WhatsApp Automation', price: '€700' },
+                { name: 'Email Automation', price: '€500' },
+                { name: 'SEO Optimization', price: '€300' },
+                { name: 'Maintenance', price: '€99/month' }
+            ]
         },
         faq: {
             title: 'Frequently Asked Questions',
@@ -225,40 +298,113 @@ export const translations = {
             guarantee: 'Réponse en 24h · Devis Gratuit · Sans Engagement'
         },
         pricing: {
-            title: 'Offres Claires & Tarification',
-            subtitle: 'Des formules claires selon le type de projet : Site Vitrine, SaaS / Mobile ou Intégration IA & APIs.',
-            recommended: 'Le Plus Demandé',
-            starterTitle: 'Site Vitrine & Landing Page High-Performance',
-            starterDesc: 'Une présence digitale moderne, ultra-rapide et conçue pour convertir vos visiteurs.',
-            starterPrice: 'À partir de 499€',
-            starterFeatures: [
-                'Landing Page ou Site Vitrine React sur mesure',
-                'Design 100% Responsive (Mobile, Tablette & Desktop)',
-                'Optimisation SEO & vitesse de chargement maximale',
-                'Formulaire de contact & Intégration WhatsApp rapide',
-                'Livraison en 7 à 10 jours'
+            sectionBadge: 'TARIFS & FORMULES',
+            title: 'Des Produits Digitaux, Pas de Sites Web.',
+            subtitle: 'Un positionnement orienté résultats. Choisissez la formule adaptée à votre ambition.',
+            recommended: 'Le Plus Populaire',
+            addonsTitle: 'Options Complémentaires',
+            addonsSubtitle: 'Enrichissez n\'importe quelle formule avec ces modules à haute valeur ajoutée.',
+            ctaBtn: 'Démarrer un Projet',
+            ctaSecondary: 'Réserver un Appel Gratuit',
+            plans: [
+                {
+                    key: 'launch',
+                    badge: null,
+                    name: 'Launch',
+                    tagline: 'Landing Page & Site Vitrine',
+                    price: '€599',
+                    priceNote: 'À partir de',
+                    delivery: 'Livraison en 7–10 jours',
+                    idealFor: 'Restaurants · Agences · Avocats · Freelances · Médecins',
+                    features: [
+                        'Design sur mesure (React / Next.js)',
+                        '100% Responsive (Mobile, Tablette, Desktop)',
+                        'Formulaire de contact & Intégration WhatsApp',
+                        'SEO de base & Performance optimisée',
+                        'Assistance mise en ligne',
+                        'Jusqu\'à 5 pages'
+                    ],
+                    notIncluded: ['Dashboard', 'Authentification', 'Base de données', 'Paiements', 'App Mobile']
+                },
+                {
+                    key: 'growth',
+                    badge: '⭐ Le Plus Populaire',
+                    name: 'Growth',
+                    tagline: 'Plateforme SaaS & Application Web',
+                    price: '€1 499',
+                    priceNote: 'À partir de',
+                    delivery: 'Livraison en 3–6 semaines',
+                    idealFor: 'CRM · ERP · Réservation · Marketplace · Logistique · E-learning',
+                    features: [
+                        'Tout ce qui est dans Launch, plus :',
+                        'Dashboard Utilisateur & Administrateur',
+                        'Authentification & Gestion des Rôles',
+                        'Architecture Base de Données (MySQL / MongoDB)',
+                        'Intégration Paiement Stripe',
+                        'APIs REST & Notifications Email',
+                        'Gestion CRUD & Upload de Fichiers',
+                        'Dashboard Analytics',
+                        'Jusqu\'à 15 pages'
+                    ],
+                    notIncluded: []
+                },
+                {
+                    key: 'scale',
+                    badge: null,
+                    name: 'Scale',
+                    tagline: 'IA & Automatisation Avancée',
+                    price: '€3 499',
+                    priceNote: 'À partir de',
+                    delivery: 'Livraison en 6–10 semaines',
+                    idealFor: 'Support IA · Agent Commercial · Génération de Leads · SaaS Interne',
+                    features: [
+                        'Tout ce qui est dans Growth, plus :',
+                        'Assistant IA (OpenAI / Gemini)',
+                        'Automatisation des Workflows & Emails',
+                        'Scraping Web & Extraction de Données',
+                        'Pipeline d\'Automatisation WhatsApp',
+                        'Génération PDF & Rapports',
+                        'Intégrations CRM',
+                        'Déploiement Docker & Cloud',
+                        'Multi-langue & Sécurité Avancée'
+                    ],
+                    notIncluded: []
+                },
+                {
+                    key: 'enterprise',
+                    badge: null,
+                    name: 'Enterprise',
+                    tagline: 'Transformation Digitale',
+                    price: 'Devis',
+                    priceNote: 'Sur Mesure',
+                    delivery: 'Délai défini lors du brief',
+                    idealFor: 'Grandes organisations & projets de transformation digitale',
+                    features: [
+                        'Applications Mobiles (React Native)',
+                        'Produits SaaS Complets',
+                        'Intégrations IA & LLM',
+                        'Backend Dédié & DevOps',
+                        'CI/CD & Infrastructure',
+                        'Monitoring & Observabilité',
+                        'Support Long Terme & SLA'
+                    ],
+                    notIncluded: []
+                }
             ],
-            businessTitle: 'Plateforme SaaS Full-Stack & App Mobile',
-            businessDesc: 'Produit digital complet avec Dashboard Web, Application Mobile React Native et APIs Backend.',
-            businessPrice: 'À partir de 999€',
-            businessFeatures: [
-                'Application Web Full-stack ou App Mobile Multi-plateforme (React Native)',
-                'Architecture Backend & Base de données (Node.js / Symfony / Django / MySQL)',
-                'Gestion des Utilisateurs, Rôles & Panneau d\'Administration Admin',
-                'Intégration Paiement & Abonnements (Stripe / PayPal)',
-                'Développement d\'APIs REST & Workflows automatisés'
-            ],
-            enterpriseTitle: 'Intégration IA & Systèmes d\'APIs Sur Mesure',
-            enterpriseDesc: 'Pipelines d\'IA avancés, intégration LLM, moteurs de scraping et microservices dédiés.',
-            enterprisePrice: 'À partir de 1 499€',
-            enterpriseFeatures: [
-                'Assistant IA Personnalisé & Intégration APIs LLM (Gemini, OpenAI)',
-                'Moteurs d\'Extraction & Scraping de Données Automatisés (Selenium/BeautifulSoup)',
-                'Pipelines de Communication en Masse (Automatisation Email / WhatsApp)',
-                'Microservices Backend & Architecture d\'APIs Sur Mesure',
-                'Support Technique Prioritaire, Maintenance & Garantie de Scaling'
-            ],
-            ctaBtn: 'Demander un Devis Gratuit'
+            addons: [
+                { name: 'Page Supplémentaire', price: '€80' },
+                { name: 'Blog / CMS', price: '€250' },
+                { name: 'Paiement Stripe', price: '€350' },
+                { name: 'Système d\'Authentification', price: '€300' },
+                { name: 'Dashboard Administrateur', price: '€600' },
+                { name: 'Application Mobile', price: 'À partir de €2 000' },
+                { name: 'Chatbot IA', price: '€700' },
+                { name: 'Intégration OpenAI', price: '€600' },
+                { name: 'Automatisation WhatsApp', price: '€700' },
+                { name: 'Automatisation Email', price: '€500' },
+                { name: 'Optimisation SEO', price: '€300' },
+                { name: 'Maintenance', price: '€99/mois' }
+            ]
         },
         faq: {
             title: 'Questions Fréquentes',
