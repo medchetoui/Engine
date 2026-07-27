@@ -114,17 +114,17 @@ export default function Pricing() {
                         return (
                             <div
                                 key={plan.key}
-                                className={`plan-card relative glass rounded-[2rem] border flex flex-col transition-all duration-500 overflow-hidden
+                                className={`plan-card relative glass rounded-[2rem] border flex flex-col transition-all duration-500 overflow-hidden group hover:-translate-y-2 hover:shadow-2xl hover:border-accent-primary/50
                                     ${styles.border}
-                                    ${isGrowth ? 'md:-translate-y-3 shadow-2xl shadow-violet-500/10' : ''}
+                                    ${isGrowth ? 'md:-translate-y-3 shadow-2xl shadow-violet-500/10 hover:shadow-violet-500/30' : 'hover:shadow-accent-primary/20'}
                                 `}
                             >
                                 {/* Card gradient overlay */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${styles.accent} opacity-80 pointer-events-none`} />
+                                <div className={`absolute inset-0 bg-gradient-to-br ${styles.accent} opacity-80 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
                                 {/* Badge */}
                                 {plan.badge && (
-                                    <div className="absolute -top-px left-0 right-0 flex justify-center">
+                                    <div className="absolute -top-px left-0 right-0 flex justify-center z-20">
                                         <div className="px-4 py-1.5 bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white text-xs font-bold font-inter tracking-wider rounded-b-xl shadow-lg">
                                             {plan.badge}
                                         </div>
@@ -134,7 +134,7 @@ export default function Pricing() {
                                 <div className={`relative z-10 flex flex-col flex-1 p-7 ${plan.badge ? 'pt-9' : ''}`}>
 
                                     {/* Icon + Name */}
-                                    <div className={`inline-flex p-2.5 rounded-xl ${styles.iconBg} mb-4 w-fit`}>
+                                    <div className={`inline-flex p-2.5 rounded-xl ${styles.iconBg} mb-4 w-fit group-hover:scale-110 transition-transform duration-300`}>
                                         <Icon size={20} />
                                     </div>
                                     <div className="mb-1">
@@ -147,7 +147,7 @@ export default function Pricing() {
                                     {/* Price */}
                                     <div className="mb-5 pb-5 border-b border-white/8">
                                         <p className="text-xs text-muted font-mono mb-0.5">{plan.priceNote}</p>
-                                        <p className={`text-3xl font-bold font-inter ${styles.priceFg}`}>
+                                        <p className={`text-3xl font-bold font-inter ${styles.priceFg} group-hover:scale-105 origin-left transition-transform duration-300`}>
                                             {plan.price}
                                         </p>
                                         <p className="text-xs text-muted font-inter mt-1 flex items-center gap-1.5">
@@ -179,15 +179,15 @@ export default function Pricing() {
 
                                     {/* CTA Button linking to WhatsApp with prefilled message */}
                                     <a
-                                        href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Mohammed, je suis intéressé par la formule "${plan.name} (${plan.price})" pour mon projet.`)}`}
+                                        href={`https://wa.me/212694763526?text=${encodeURIComponent(`Bonjour Mohammed, je suis intéressé par la formule "${plan.name} (${plan.price})" pour mon projet.`)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`group inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-inter font-semibold text-sm transition-all duration-300 ${styles.btn}`}
+                                        className={`group/btn inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-inter font-semibold text-sm transition-all duration-300 ${styles.btn}`}
                                     >
                                         {plan.key === 'enterprise' ? (
                                             <><Phone size={14} /> {t('pricing.ctaSecondary')}</>
                                         ) : (
-                                            <>{t('pricing.ctaBtn')} <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" /></>
+                                            <>{t('pricing.ctaBtn')} <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" /></>
                                         )}
                                     </a>
                                 </div>
@@ -211,19 +211,19 @@ export default function Pricing() {
                         {addons.map((addon, i) => (
                             <a
                                 key={i}
-                                href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Mohammed, je souhaite ajouter l'option "${addon.name} (${addon.price})" à mon projet.`)}`}
+                                href={`https://wa.me/212694763526?text=${encodeURIComponent(`Bonjour Mohammed, je souhaite ajouter l'option "${addon.name} (${addon.price})" à mon projet.`)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onMouseEnter={() => setHoveredAddon(i)}
                                 onMouseLeave={() => setHoveredAddon(null)}
-                                className={`addon-item glass rounded-2xl border p-4 text-center transition-all duration-300 cursor-pointer block group hover:bg-surface/80
+                                className={`addon-item glass rounded-2xl border p-4 text-center transition-all duration-300 cursor-pointer block group hover:bg-surface/90
                                     ${hoveredAddon === i
-                                        ? 'border-accent-primary/50 -translate-y-1.5 shadow-xl shadow-accent-primary/20 bg-surface'
+                                        ? 'border-accent-primary/60 -translate-y-2 shadow-xl shadow-accent-primary/25 bg-surface scale-105'
                                         : 'border-white/5'}
                                 `}
                             >
                                 <p className="text-xs font-inter text-muted group-hover:text-highlight mb-2 leading-snug transition-colors">{addon.name}</p>
-                                <p className="text-sm font-bold font-mono text-accent-primary group-hover:scale-105 transition-transform">{addon.price}</p>
+                                <p className="text-sm font-bold font-mono text-accent-primary group-hover:scale-110 transition-transform">{addon.price}</p>
                             </a>
                         ))}
                     </div>
