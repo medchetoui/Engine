@@ -195,7 +195,7 @@ export const translations = {
                     'Multi-role RBAC authentication & subscription management',
                     'Responsive mobile UI built with React Native'
                 ],
-                architecture: 'Built with React, React Native, Symfony API backend, MySQL, Docker containerization & Nginx proxying.'
+                architecture: 'Built with React, React Native, Node.js API backend, MySQL, Docker containerization & Nginx proxying.'
             },
             abyssDesc: 'High-performance e-commerce platform & streetwear brand architecture.',
             abyssDetails: {
@@ -274,7 +274,7 @@ export const translations = {
             button: 'Let’s Build It',
         },
         footer: {
-            status: 'System Status: Operational',
+            status: 'Response within 24h',
         }
     },
     fr: {
@@ -469,7 +469,7 @@ export const translations = {
                     'Authentification multi-rôles RBAC et gestion des abonnements',
                     'Interface mobile réactive conçue avec React Native'
                 ],
-                architecture: 'Développé avec React, React Native, API backend Symfony, MySQL, Docker & proxy Nginx.'
+                architecture: 'Développé avec React, React Native, API backend Node.js, MySQL, Docker & proxy Nginx.'
             },
             abyssDesc: 'Plateforme e-commerce haute performance et architecture de marque streetwear.',
             abyssDetails: {
@@ -548,7 +548,7 @@ export const translations = {
             button: 'Construisons-la',
         },
         footer: {
-            status: 'Statut du Système : Opérationnel',
+            status: 'Réponse sous 24h',
         }
     }
 };

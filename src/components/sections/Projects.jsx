@@ -36,7 +36,7 @@ export default function Projects() {
             title: 'AutoFret',
             status: 'Production Ready',
             role: t('projects.autofretDesc'),
-            tech: ['React', 'React Native', 'Symfony', 'MySQL', 'Docker'],
+            tech: ['React', 'React Native', 'Node.js', 'MySQL', 'Docker'],
             image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop',
             link: 'https://autofret.com/',
             details: t('projects.autofretDetails')
@@ -121,12 +121,16 @@ export default function Projects() {
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`project-card group block relative rounded-[2rem] overflow-hidden bg-surface border border-white/5 shadow-2xl transition-all duration-500 hover:border-white/20 ${
+                            className={`project-card group block relative rounded-[2rem] overflow-hidden bg-surface border border-white/5 shadow-2xl transition-all duration-500 hover:border-accent-primary/40 hover:shadow-accent-primary/10 ${
                                 i % 2 !== 0 ? 'md:mt-16' : ''
                             }`}
                         >
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10" />
+                                <span className="absolute top-5 right-5 z-20 px-4 py-1.5 rounded-full bg-black/70 backdrop-blur-md text-xs font-mono text-white flex items-center gap-1.5 border border-white/15 group-hover:border-accent-primary/60 group-hover:bg-accent-primary group-hover:text-white transition-all duration-300 shadow-lg">
+                                    <span>Live Site</span>
+                                    <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                </span>
                                 <img
                                     src={project.image}
                                     alt={project.title}
@@ -143,9 +147,11 @@ export default function Projects() {
                                     ))}
                                 </div>
 
-                                <h3 className="text-3xl font-bold text-highlight font-inter mb-3 flex items-center gap-3">
-                                    {project.title}
-                                    <ArrowUpRight className="text-accent-primary opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                                <h3 className="text-3xl font-bold text-highlight font-inter mb-3 flex items-center justify-between">
+                                    <span>{project.title}</span>
+                                    <span className="text-xs font-mono text-accent-primary group-hover:underline flex items-center gap-1">
+                                        Visit Platform <ArrowUpRight size={16} />
+                                    </span>
                                 </h3>
                                 <p className="text-lg text-muted font-playfair italic">
                                     {project.role}
