@@ -14,8 +14,15 @@
     rel="stylesheet">
 
   <title>Digital Systems Command Center</title>
-  <script type="module" crossorigin src="/Engine/assets/index-enHU7F4U.js"></script>
-  <link rel="stylesheet" crossorigin href="/Engine/assets/index-Bo86Th5h.css">
+  <script>
+    try {
+      document.documentElement.classList.toggle('dark', localStorage.getItem('theme') !== 'light');
+    } catch (e) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+  <script type="module" crossorigin src="/Engine/assets/index-DNvMjun7.js"></script>
+  <link rel="stylesheet" crossorigin href="/Engine/assets/index-CjcqA9QY.css">
 </head>
 
 <body>
